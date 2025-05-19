@@ -36,7 +36,7 @@ const login = async (req, res) => {
       return res.status(400).json({ message: "Неверный email или пароль" });
     }
   } catch {
-    return res.status(400).json({ message: "Что-то пошло не так" });
+    return res.status(500).json({ message: "Что-то пошло не так" });
   }
 };
 
@@ -90,7 +90,7 @@ const register = async (req, res, next) => {
         .json({ message: "Не удалось создать пользователя" });
     }
   } catch {
-    return res.status(400).json({ message: "Что-то пошло не так" });
+    return res.status(500).json({ message: "Что-то пошло не так" });
   }
 };
 
