@@ -22,7 +22,7 @@ export const CPasswordInput = ({ name, placeholder, dependencies }: Props) => {
               return Promise.resolve()
             }
             if (name === "confirmPassword") {
-              if (!value || getFieldValue(name) === value) {
+              if (!value || getFieldValue("password") === value) {
                 return Promise.resolve()
               }
               return Promise.reject(new Error("Пароли не совпадают"))
