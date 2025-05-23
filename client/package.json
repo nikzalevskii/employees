@@ -16,8 +16,9 @@
     "type-check": "tsc -b --noEmit"
   },
   "dependencies": {
+    "@ant-design/icons": "^6.0.0",
     "@reduxjs/toolkit": "^2.6.1",
-    "antd": "^5.25.2",
+    "antd": "5.1.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
@@ -36,9 +37,11 @@
     "@vitest/eslint-plugin": "^1.1.39",
     "eslint": "^9.23.0",
     "eslint-config-prettier": "^10.1.1",
+    "eslint-import-resolver-typescript": "^4.3.5",
     "eslint-plugin-prettier": "^5.2.6",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
     "globals": "^16.0.0",
     "jsdom": "^26.0.0",
     "prettier": "^3.5.3",

@@ -1,12 +1,15 @@
+import "./index.css"
+
+import { ConfigProvider, theme } from "antd"
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
 import { Provider } from "react-redux"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+
 import { store } from "./app/store"
-import { Path } from "./paths"
 import { Login } from "./pages/login"
 import { Register } from "./pages/register"
-import "./index.css"
+import { Path } from "./paths"
 
 const router = createBrowserRouter([
   {
@@ -31,7 +34,9 @@ if (container) {
   root.render(
     <StrictMode>
       <Provider store={store}>
-        <RouterProvider router={router} />
+        <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
+          <RouterProvider router={router} />
+        </ConfigProvider>
       </Provider>
     </StrictMode>,
   )

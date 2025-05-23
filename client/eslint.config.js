@@ -3,6 +3,7 @@ import vitestPlugin from "@vitest/eslint-plugin"
 import prettierConfig from "eslint-config-prettier/flat"
 import reactPlugin from "eslint-plugin-react"
 import reactHooksPlugin from "eslint-plugin-react-hooks"
+import simpleImportSortPlugin from "eslint-plugin-simple-import-sort"
 import globals from "globals"
 import { config, configs } from "typescript-eslint"
 
@@ -50,10 +51,20 @@ const eslintConfig = config(
       vitest: {
         typecheck: true,
       },
+      "import/resolver": {
+        typescript: {
+          project: "./tsconfig.app.json",
+        },
+      },
+    },
+    plugins: {
+      "simple-import-sort": simpleImportSortPlugin,
     },
     rules: {
       "no-undef": [0],
       "@typescript-eslint/consistent-type-definitions": [2, "type"],
+      "simple-import-sort/imports": "warn",
+      "simple-import-sort/exports": "warn",
       "@typescript-eslint/consistent-type-imports": [
         2,
         {

@@ -7,3 +7,5 @@ export const Path = {
   login: "/login",
   register: "/register",
 } as const
+
+export type Path = typeof Path
