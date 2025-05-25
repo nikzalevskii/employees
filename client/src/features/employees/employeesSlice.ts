@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-import { Employee } from "../../../../generated/prisma"
 import { employeesApi } from "@/app/services/employees"
-import { RootState } from "@/app/store"
+import type { RootState } from "@/app/store"
+
+import type { Employee } from "../../../../generated/prisma"
 
 interface initialState {
   employees: Employee[] | null
