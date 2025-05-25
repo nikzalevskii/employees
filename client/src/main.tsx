@@ -7,6 +7,7 @@ import { Provider } from "react-redux"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 import { store } from "./app/store"
+import { Auth } from "./features/auth/auth"
 import { Login } from "./pages/login"
 import { Register } from "./pages/register"
 import { Path } from "./paths"
@@ -35,7 +36,9 @@ if (container) {
     <StrictMode>
       <Provider store={store}>
         <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
-          <RouterProvider router={router} />
+          <Auth>
+            <RouterProvider router={router} />
+          </Auth>
         </ConfigProvider>
       </Provider>
     </StrictMode>,

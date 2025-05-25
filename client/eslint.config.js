@@ -62,11 +62,18 @@ const eslintConfig = config(
     },
     rules: {
       "no-undef": [0],
-      "@typescript-eslint/consistent-type-definitions": [2, "type"],
+      "@typescript-eslint/consistent-type-definitions": "off",
       "simple-import-sort/imports": "warn",
       "simple-import-sort/exports": "warn",
+      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-unsafe-member-access": "warn",
+      "@typescript-eslint/no-unsafe-assignment": "warn",
+      "@typescript-eslint/no-misused-promises": "warn",
+      "@typescript-eslint/no-unsafe-call": "warn",
+      "@typescript-eslint/semi": ["warn", "never"],
+      "@typescript-eslint/no-invalid-void-type": "off",
       "@typescript-eslint/consistent-type-imports": [
-        2,
+        1,
         {
           prefer: "type-imports",
           fixStyle: "separate-type-imports",

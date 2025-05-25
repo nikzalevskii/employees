@@ -40,7 +40,11 @@ export const CPasswordInput = ({ name, placeholder, dependencies }: Props) => {
       hasFeedback
       dependencies={dependencies}
     >
-      <Input.Password placeholder={placeholder} size="large" />
+      <Input.Password
+        placeholder={placeholder}
+        size="large"
+        autoComplete="current-password"
+      />
     </Form.Item>
   )
 }

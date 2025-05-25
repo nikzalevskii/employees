@@ -1,10 +1,20 @@
 import type { Action, ThunkAction } from "@reduxjs/toolkit"
-import { configureStore } from "@reduxjs/toolkit"
+import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import { setupListeners } from "@reduxjs/toolkit/query"
+
+import auth from "@/features/auth/authSlice"
+import employees from "@/features/employees/employeesSlice"
+import { listenerMiddleware } from "@/middleware/auth"
+
+import { api } from "./services/api"
 
 // `combineSlices` automatically combines the reducers using
 // their `reducerPath`s, therefore we no longer need to call `combineReducers`.
-const rootReducer = (state = {}) => state
+const rootReducer = combineReducers({
+  [api.reducerPath]: api.reducer,
+  auth,
+  employees,
+})
 // Infer the `RootState` type from the root reducer
 export type RootState = ReturnType<typeof rootReducer>
 
@@ -15,7 +25,10 @@ export const makeStore = (preloadedState?: Partial<RootState>) => {
     reducer: rootReducer,
     // Adding the api middleware enables caching, invalidation, polling,
     // and other useful features of `rtk-query`.
-
+    middleware: getDefaultMiddleware =>
+      getDefaultMiddleware()
+        .concat(api.middleware)
+        .prepend(listenerMiddleware.middleware),
     preloadedState,
   })
   // configure listeners using the provided defaults
