@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 import { store } from "./app/store"
 import { Auth } from "./features/auth/auth"
+import { Employees } from "./pages/employees"
 import { Login } from "./pages/login"
 import { Register } from "./pages/register"
 import { Path } from "./paths"
@@ -15,7 +16,7 @@ import { Path } from "./paths"
 const router = createBrowserRouter([
   {
     path: Path.home,
-    element: <h1>Employees</h1>,
+    element: <Employees />,
   },
   {
     path: Path.login,
