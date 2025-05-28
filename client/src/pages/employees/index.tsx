@@ -42,11 +42,13 @@ export const Employees = () => {
     }
   }, [user, navigate])
 
+  const gotoAddUser = () => void navigate(Path.employeeAdd)
+
   return (
     <Layout>
       <CButton
         type="primary"
-        onClick={() => null}
+        onClick={gotoAddUser}
         icon={<PlayCircleOutlined />}
       >
         Добавить

@@ -8,9 +8,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 import { store } from "./app/store"
 import { Auth } from "./features/auth/auth"
+import { AddEmployee } from "./pages/add-employee"
+import { Employee } from "./pages/employee"
 import { Employees } from "./pages/employees"
 import { Login } from "./pages/login"
 import { Register } from "./pages/register"
+import { Status } from "./pages/status"
 import { Path } from "./paths"
 
 const router = createBrowserRouter([
@@ -25,6 +28,18 @@ const router = createBrowserRouter([
   {
     path: Path.register,
     element: <Register />,
+  },
+  {
+    path: Path.employeeAdd,
+    element: <AddEmployee />,
+  },
+  {
+    path: `${Path.status}/:status`,
+    element: <Status />,
+  },
+  {
+    path: `${Path.employee}/:id`,
+    element: <Employee />,
   },
 ])
 
